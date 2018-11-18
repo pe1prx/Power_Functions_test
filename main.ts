@@ -142,8 +142,8 @@ namespace powerfunctions {
     //% blockId=pf_adjust_ir_timing
     //% block="adjust timing | of IR mark %markMicroSeconds | and pause %pauseMicroSeconds"
     //% weight=10
-    //% markMicroSeconds.min=-600 markMicroSeconds.max=0
-    //% pauseMicroSeconds.min=-600 pauseMicroSeconds.max=0
+    //% markMicroSeconds.min=-200 markMicroSeconds.max=0
+    //% pauseMicroSeconds.min=-300 pauseMicroSeconds.max=0
     //% advanced=true
     export function adjustIrTiming(
         markMicroSeconds: number = BoardConfig.MarkTimingCorrectionMicroSeconds,
@@ -283,9 +283,9 @@ namespace powerfunctions {
 
             transmitBit(markMicroSeconds: number, pauseMicroSeconds: number): void {
                 pins.analogWritePin(this.pin, 511)
-                control.waitMicros(Math.max(1, markMicroSeconds + markTimingCorrectionMicroSeconds))
+                control.waitMicros(Math.max(0, markMicroSeconds + markTimingCorrectionMicroSeconds))
                 pins.analogWritePin(this.pin, 0)
-                control.waitMicros(Math.max(1, pauseMicroSeconds + pauseTimingCorrectionMicroSeconds))
+                control.waitMicros(Math.max(0, pauseMicroSeconds + pauseTimingCorrectionMicroSeconds))
             }
         }
 
