@@ -1,6 +1,6 @@
 {
     "name": "powerfunctions",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": " Control your Lego® Power Functions motors using your PXT board, an infrared LED and MakeCode. This package is neither endorsed nor authorized by the LEGO Group.",
     "license": "MIT",
     "dependencies": {
